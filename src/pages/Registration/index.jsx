@@ -23,8 +23,10 @@ export const Registration = () => {
         formState: {errors, isValid},
     } = useForm({
         defaultValues: {
-            fullName: "Некит Ермаков",
+            name: "Некит",
+            surname: 'Ермаков',
             email: "nekit@test.ru",
+            login: 'login',
             password: "12345",
         },
         mode: "onChange",
@@ -59,12 +61,28 @@ export const Registration = () => {
                     <Avatar sx={{width: 100, height: 100}} />
                 </div>
                 <TextField
-                    error={Boolean(errors.fullName?.message)}
-                    helperText={errors.fullName?.message}
-                    {...register("fullName", {required: "Укажите полное имя"})}
+                    error={Boolean(errors.name?.message)}
+                    helperText={errors.name?.message}
+                    {...register("name", {required: "Укажите полное имя"})}
                     fullWidth
                     className={styles.field}
-                    label="Полное имя"
+                    label="Имя"
+                />
+                <TextField
+                    error={Boolean(errors.surname?.message)}
+                    helperText={errors.surname?.message}
+                    {...register("surname", {required: "Укажите полное имя"})}
+                    fullWidth
+                    className={styles.field}
+                    label="Фамилия"
+                />
+                <TextField
+                    error={Boolean(errors.login?.message)}
+                    helperText={errors.login?.message}
+                    {...register("login", {required: "Укажите почту"})}
+                    fullWidth
+                    className={styles.field}
+                    label="login"
                 />
                 <TextField
                     error={Boolean(errors.email?.message)}
