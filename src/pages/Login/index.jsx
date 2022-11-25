@@ -21,7 +21,7 @@ export const Login = ({checkId}) => {
         formState: {errors, isValid},
     } = useForm({
         defaultValues: {
-            email: "test@test.ru",
+            login: "login",
             password: "12345",
         },
         mode: "onChange",
@@ -51,10 +51,10 @@ export const Login = ({checkId}) => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <TextField
                     className={styles.field}
-                    label="E-Mail"
-                    error={Boolean(errors.email?.message)}
-                    helperText={errors.email?.message}
-                    {...register("email", {required: "Укажите почту"})}
+                    label="login"
+                    error={Boolean(errors.login?.message)}
+                    helperText={errors.login?.message}
+                    {...register("login", {required: "Укажите логин"})}
                     fullWidth
                 />
                 <TextField
